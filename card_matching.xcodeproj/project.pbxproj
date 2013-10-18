@@ -21,6 +21,10 @@
 		01D2BB481810AB4700A75044 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D2BB2A1810AB4700A75044 /* UIKit.framework */; };
 		01D2BB501810AB4700A75044 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 01D2BB4E1810AB4700A75044 /* InfoPlist.strings */; };
 		01D2BB521810AB4700A75044 /* card_matchingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2BB511810AB4700A75044 /* card_matchingTests.m */; };
+		01D2BB5E1810AB6400A75044 /* NWCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2BB5D1810AB6400A75044 /* NWCard.m */; };
+		01D2BB611810ACDD00A75044 /* NWDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2BB601810ACDD00A75044 /* NWDeck.m */; };
+		01D2BB641810B6B800A75044 /* NWPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2BB631810B6B800A75044 /* NWPlayingCard.m */; };
+		01D2BB671810BBB700A75044 /* NWPlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2BB661810BBB700A75044 /* NWPlayingCardDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,14 @@
 		01D2BB4D1810AB4700A75044 /* card_matchingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "card_matchingTests-Info.plist"; sourceTree = "<group>"; };
 		01D2BB4F1810AB4700A75044 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		01D2BB511810AB4700A75044 /* card_matchingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = card_matchingTests.m; sourceTree = "<group>"; };
+		01D2BB5C1810AB6400A75044 /* NWCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWCard.h; sourceTree = "<group>"; };
+		01D2BB5D1810AB6400A75044 /* NWCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWCard.m; sourceTree = "<group>"; };
+		01D2BB5F1810ACDD00A75044 /* NWDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWDeck.h; sourceTree = "<group>"; };
+		01D2BB601810ACDD00A75044 /* NWDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWDeck.m; sourceTree = "<group>"; };
+		01D2BB621810B6B800A75044 /* NWPlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWPlayingCard.h; sourceTree = "<group>"; };
+		01D2BB631810B6B800A75044 /* NWPlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWPlayingCard.m; sourceTree = "<group>"; };
+		01D2BB651810BBB700A75044 /* NWPlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWPlayingCardDeck.h; sourceTree = "<group>"; };
+		01D2BB661810BBB700A75044 /* NWPlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWPlayingCardDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,7 @@
 				01D2BB381810AB4700A75044 /* Main.storyboard */,
 				01D2BB3B1810AB4700A75044 /* NWViewController.h */,
 				01D2BB3C1810AB4700A75044 /* NWViewController.m */,
+				01D2BB5B1810AB5000A75044 /* Models */,
 				01D2BB3E1810AB4700A75044 /* Images.xcassets */,
 				01D2BB2D1810AB4700A75044 /* Supporting Files */,
 			);
@@ -150,6 +163,21 @@
 				01D2BB4E1810AB4700A75044 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01D2BB5B1810AB5000A75044 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				01D2BB5C1810AB6400A75044 /* NWCard.h */,
+				01D2BB5D1810AB6400A75044 /* NWCard.m */,
+				01D2BB5F1810ACDD00A75044 /* NWDeck.h */,
+				01D2BB601810ACDD00A75044 /* NWDeck.m */,
+				01D2BB621810B6B800A75044 /* NWPlayingCard.h */,
+				01D2BB631810B6B800A75044 /* NWPlayingCard.m */,
+				01D2BB651810BBB700A75044 /* NWPlayingCardDeck.h */,
+				01D2BB661810BBB700A75044 /* NWPlayingCardDeck.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +279,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				01D2BB3D1810AB4700A75044 /* NWViewController.m in Sources */,
+				01D2BB611810ACDD00A75044 /* NWDeck.m in Sources */,
 				01D2BB331810AB4700A75044 /* main.m in Sources */,
+				01D2BB641810B6B800A75044 /* NWPlayingCard.m in Sources */,
+				01D2BB5E1810AB6400A75044 /* NWCard.m in Sources */,
+				01D2BB671810BBB700A75044 /* NWPlayingCardDeck.m in Sources */,
 				01D2BB371810AB4700A75044 /* NWAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
