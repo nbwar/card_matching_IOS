@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "NWDeck.h"
+
 @interface NWGame : NSObject
 @property (strong, nonatomic) NSMutableArray *currentCards;
+@property (nonatomic) NSUInteger matches;
+@property (nonatomic) NSUInteger flips;
 
+-(void)startGame;
 @end

@@ -14,19 +14,26 @@
 @interface NWViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
-@property (strong, nonatomic) NWPlayingCardDeck *deck;
 @property (strong, nonatomic) NWGame *game;
 @end
 
 @implementation NWViewController
 
--(NWPlayingCardDeck *)deck
+
+- (void)viewDidLoad
 {
-    if (!_deck) {
-        _deck = [[NWPlayingCardDeck alloc] init];
-    }
-    return _deck;
+    [super viewDidLoad];
+    NWGame *game = [[NWGame alloc] init];
+    [game startGame];
 }
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+  
+}
+
 
 -(NWGame *)game
 {
@@ -46,11 +53,12 @@
 
 - (IBAction)flipCard:(UIButton *)sender
 {
+    
     sender.selected = !sender.isSelected;
+    NSLog(@"%@", sender.currentTitle);
     self.flipCount++;
-    NWCard *card = [self.deck drawRandomCard];
-    NSLog(@"%@", card.contents);
-    [sender setTitle:card.contents forState:UIControlStateSelected];
+//    NWCard *card = [self.deck drawRandomCard];
+//    [sender setTitle:card.contents forState:UIControlStateSelected];
     
 }
 

@@ -9,7 +9,7 @@
 #import "NWDeck.h"
 
 @interface NWDeck()
-@property (strong, nonatomic) NSMutableArray *cards;
+
 @end
 
 @implementation NWDeck

@@ -11,6 +11,7 @@
 
 @interface NWDeck : NSObject
 
+@property (strong, nonatomic) NSMutableArray *cards;
 - (void)addCard:(NWCard *)card atTop:(BOOL)atTop;
 
 - (NWCard *)drawRandomCard;
