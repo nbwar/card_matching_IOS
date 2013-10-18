@@ -97,7 +97,10 @@
 -(void)checkForGameOver
 {
     if ([self.game isGameOver]) {
-        NSLog(@"game over");
+        NSString *message = [NSString stringWithFormat:@"You Scored: %.02f%%", [self.game score]];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You Win" message:message delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        [alertView show];
+        
     }
 }
 
@@ -107,6 +110,7 @@
         [self.flippedUpCards addObject:sender];
         sender.selected = !sender.isSelected;
 
+
         if (self.flippedUpCards.count == 2 && [self.game isMatch:[self.flippedUpCards[0] titleForState:UIControlStateSelected] card2:[self.flippedUpCards[1] titleForState:UIControlStateSelected]]) {
             [self updateFlipCount];
             [self updateMatchCount];
@@ -115,6 +119,7 @@
         } else if (self.flippedUpCards.count == 2) {
             [self updateFlipCount];
             [self performSelector:@selector(hide) withObject:nil afterDelay:2];
+            [self.game score];
         }
     }
     

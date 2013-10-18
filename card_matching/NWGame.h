@@ -12,12 +12,10 @@
 
 @interface NWGame : NSObject
 @property (strong, nonatomic) NSMutableArray *currentCards;
-@property (nonatomic) NSUInteger matches;
-//@property (nonatomic) NSUInteger flips;
-@property (readonly, nonatomic) int score;
 @property (readonly, nonatomic) int flipCount;
 @property (readonly, nonatomic) int matchCount;
 
+-(float)score;
 
 -(BOOL)isMatch:(NSString *)card1 card2:(NSString *)card2;
 

@@ -12,13 +12,22 @@
 
 @interface NWGame()
 @property (strong, nonatomic) NWPlayingCardDeck *deck;
-@property (readwrite, nonatomic) int score;
 @property (readwrite, nonatomic) int flipCount;
 @property (readwrite, nonatomic) int matchCount;
+
 
 @end
 
 @implementation NWGame
+
+
+-(float)score
+{
+    float flips = (float)self.flipCount;
+    float matches = (float)self.matchCount;
+    float score = (matches / flips) * 100;
+    return score;
+}
 
 -(void)startGame
 {
