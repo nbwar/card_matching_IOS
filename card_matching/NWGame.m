@@ -47,6 +47,21 @@
         [cardsArray addObject:[self.deck.cards objectAtIndex:x]];
     }
     
+    [cardsArray addObjectsFromArray:cardsArray];
+    cardsArray = [self shuffleCards:cardsArray];
+    
     return cardsArray;
+}
+
+-(NSMutableArray *)shuffleCards:(NSMutableArray *)cards
+{
+    NSUInteger firstIndex;
+    NSUInteger secondIndex;
+    for (NSUInteger i = 0; i < 12; i++) {
+        firstIndex = arc4random() % 12 - 1;
+        secondIndex = arc4random() % 12 - 1;
+        [cards exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
+    }
+    return cards;
 }
 @end
