@@ -11,14 +11,15 @@
 
 @interface NWGame()
 @property (strong, nonatomic) NWPlayingCardDeck *deck;
+@property (readwrite, nonatomic) int score;
 @end
 
 @implementation NWGame
 
 -(void)startGame
 {
-    NSLog(@"%@", self.deck);
     self.currentCards = [self chooseCards];
+
 }
 
 -(NWPlayingCardDeck *)deck
@@ -26,6 +27,7 @@
     if (!_deck) _deck = [[NWPlayingCardDeck alloc] init];
     return _deck;
 }
+
 
 -(NSMutableArray *)currentCards
 {
@@ -35,16 +37,11 @@
 
 -(NSMutableArray *)chooseCards;
 {
-    NSMutableArray *randomIndexes = [[NSMutableArray alloc] init];
     NSMutableArray *cardsArray = [[NSMutableArray alloc] init];
-    
-    for (NSUInteger i = 0; i < 6; i++) {
-        NSUInteger ran = arc4random() % 52;
-        [randomIndexes addObject:[NSNumber numberWithInt:ran]];
-    }
+    NSLog(@"Choosing Cards");
     
     for (NSUInteger x = 0; x < 6; x++) {
-        [cardsArray addObject:[self.deck.cards objectAtIndex:x]];
+        [cardsArray addObject:[self.deck drawRandomCard]];
     }
     
     [cardsArray addObjectsFromArray:cardsArray];
@@ -58,8 +55,8 @@
     NSUInteger firstIndex;
     NSUInteger secondIndex;
     for (NSUInteger i = 0; i < 12; i++) {
-        firstIndex = arc4random() % 12 - 1;
-        secondIndex = arc4random() % 12 - 1;
+        firstIndex = arc4random() % 12;
+        secondIndex = arc4random() % 12;
         [cards exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
     }
     return cards;
