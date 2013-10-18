@@ -8,10 +8,14 @@
 
 #import "NWGame.h"
 #import "NWPlayingCardDeck.h"
+#import "NWCard.h"
 
 @interface NWGame()
 @property (strong, nonatomic) NWPlayingCardDeck *deck;
 @property (readwrite, nonatomic) int score;
+@property (readwrite, nonatomic) int flipCount;
+@property (readwrite, nonatomic) int matchCount;
+
 @end
 
 @implementation NWGame
@@ -38,7 +42,6 @@
 -(NSMutableArray *)chooseCards;
 {
     NSMutableArray *cardsArray = [[NSMutableArray alloc] init];
-    NSLog(@"Choosing Cards");
     
     for (NSUInteger x = 0; x < 6; x++) {
         [cardsArray addObject:[self.deck drawRandomCard]];
@@ -62,9 +65,37 @@
     return cards;
 }
 
+
 -(BOOL)isMatch:(NSString *)card1 card2:(NSString *)card2
 {
-    return ([card1 isEqualToString:card2]) ? YES : NO;
 
+    if ([card1 isEqualToString:card2]) {
+        NSMutableArray *toDelete = [NSMutableArray array];
+        for (NWCard *card in self.currentCards) {
+            if ([card.contents isEqualToString:card1]) {
+                [toDelete addObject:card];
+            }
+        }
+        [self.currentCards removeObjectsInArray:toDelete];
+        return YES;
+    } else {
+        return NO;
+    }
+
+}
+
+-(BOOL)isGameOver
+{
+    return (self.currentCards.count == 0) ? YES : NO;
+}
+
+-(void)changeFlipCount
+{
+    self.flipCount++;
+}
+
+-(void)changeMatchCount
+{
+    self.matchCount++;
 }
 @end

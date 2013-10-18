@@ -14,7 +14,7 @@
 
 @interface NWViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
-@property (nonatomic) int flipCount;
+@property (weak, nonatomic) IBOutlet UILabel *matchesLabel;
 @property (strong, nonatomic) NWGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic) NSMutableArray *flippedUpCards;
@@ -66,19 +66,40 @@
 }
 
 
--(void)setFlipCount:(int)flipCount
+-(void)hide
 {
-    _flipCount = flipCount;
-    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %i", flipCount];
-}
-
--(void)hide{
     for (UIButton *button in self.flippedUpCards) {
         button.selected = !button.isSelected;
     }
     [self.flippedUpCards removeAllObjects];
 }
 
+-(void)removeCards
+{
+    for (UIButton *button in self.flippedUpCards) {
+        button.hidden = YES;
+    }
+    [self.flippedUpCards removeAllObjects];
+}
+
+-(void)updateFlipCount
+{
+    [self.game changeFlipCount];
+    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %i", self.game.flipCount];
+}
+
+-(void)updateMatchCount
+{
+    [self.game changeMatchCount];
+    self.matchesLabel.text = [NSString stringWithFormat:@"Matches: %i", self.game.matchCount];
+}
+
+-(void)checkForGameOver
+{
+    if ([self.game isGameOver]) {
+        NSLog(@"game over");
+    }
+}
 
 - (IBAction)flipCard:(UIButton *)sender
 {
@@ -87,15 +108,15 @@
         sender.selected = !sender.isSelected;
 
         if (self.flippedUpCards.count == 2 && [self.game isMatch:[self.flippedUpCards[0] titleForState:UIControlStateSelected] card2:[self.flippedUpCards[1] titleForState:UIControlStateSelected]]) {
-            NSLog(@"MATCH");
+            [self updateFlipCount];
+            [self updateMatchCount];
+            [self performSelector:@selector(removeCards) withObject:nil afterDelay:2];
+            [self checkForGameOver];
         } else if (self.flippedUpCards.count == 2) {
+            [self updateFlipCount];
             [self performSelector:@selector(hide) withObject:nil afterDelay:2];
-            self.flipCount++;
         }
     }
-    
-
-
     
 }
 

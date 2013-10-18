@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "NWDeck.h"
-#import "NWCard.h"
+
 
 @interface NWGame : NSObject
 @property (strong, nonatomic) NSMutableArray *currentCards;
 @property (nonatomic) NSUInteger matches;
-@property (nonatomic) NSUInteger flips;
+//@property (nonatomic) NSUInteger flips;
 @property (readonly, nonatomic) int score;
+@property (readonly, nonatomic) int flipCount;
+@property (readonly, nonatomic) int matchCount;
 
 
 -(BOOL)isMatch:(NSString *)card1 card2:(NSString *)card2;
@@ -22,8 +24,8 @@
 
 -(void)startGame;
 
-//-(void)flipCardAtIndex:(NSUInteger)index;
-//
-//-(NWCard *)cardAtIndex:(NSUInteger)index;
+-(void)changeFlipCount;
+-(void)changeMatchCount;
+-(BOOL)isGameOver;
 
 @end

@@ -175,6 +175,7 @@
                     </view>
                     <connections>
                         <outlet property="flipsLabel" destination="lgc-ML-vP4" id="4la-J2-MHo"/>
+                        <outlet property="matchesLabel" destination="9G6-UX-0It" id="nEc-t2-tjv"/>
                         <outletCollection property="cardButtons" destination="vxu-6x-oTl" id="gMX-hH-K5H"/>
                         <outletCollection property="cardButtons" destination="W01-7y-BJo" id="oZq-j4-BqM"/>
                         <outletCollection property="cardButtons" destination="WXK-r6-Xkd" id="q4x-Ke-ULK"/>
