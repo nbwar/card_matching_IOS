@@ -61,4 +61,10 @@
     }
     return cards;
 }
+
+-(BOOL)isMatch:(NSString *)card1 card2:(NSString *)card2
+{
+    return ([card1 isEqualToString:card2]) ? YES : NO;
+
+}
 @end

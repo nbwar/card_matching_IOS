@@ -17,6 +17,7 @@
 @property (readonly, nonatomic) int score;
 
 
+-(BOOL)isMatch:(NSString *)card1 card2:(NSString *)card2;
 
 
 -(void)startGame;

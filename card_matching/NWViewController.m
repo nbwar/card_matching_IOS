@@ -16,20 +16,24 @@
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
 @property (strong, nonatomic) NWGame *game;
-@property (strong, nonatomic) NWDeck *deck;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (strong, nonatomic) NSMutableArray *flippedUpCards;
 @end
 
 @implementation NWViewController
 
-
+-(NSMutableArray *)flippedUpCards
+{
+    if(!_flippedUpCards) _flippedUpCards = [[NSMutableArray alloc] init];
+    return _flippedUpCards;
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.game startGame];
-    [self connectCardButtons:self.cardButtons];
+    [self connectCardButtons];
 }
 
 
@@ -40,7 +44,7 @@
 }
 
 
--(void)connectCardButtons:(NSArray *)cardButtons
+-(void)connectCardButtons;
 {
     int i = 0;
     for (UIButton *cardButton in self.cardButtons) {
@@ -51,11 +55,6 @@
         
 }
 
--(NWDeck *)deck
-{
-    if (!_deck) _deck = [[NWPlayingCardDeck alloc] init];
-    return _deck;
-}
 
 
 -(NWGame *)game
@@ -73,13 +72,30 @@
     self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %i", flipCount];
 }
 
+-(void)hide{
+    for (UIButton *button in self.flippedUpCards) {
+        button.selected = !button.isSelected;
+    }
+    [self.flippedUpCards removeAllObjects];
+}
+
 
 - (IBAction)flipCard:(UIButton *)sender
 {
-     
-    sender.selected = !sender.isSelected;
+    if (!sender.isSelected && self.flippedUpCards.count < 2) {
+        [self.flippedUpCards addObject:sender];
+        sender.selected = !sender.isSelected;
 
-    self.flipCount++;
+        if (self.flippedUpCards.count == 2 && [self.game isMatch:[self.flippedUpCards[0] titleForState:UIControlStateSelected] card2:[self.flippedUpCards[1] titleForState:UIControlStateSelected]]) {
+            NSLog(@"MATCH");
+        } else if (self.flippedUpCards.count == 2) {
+            [self performSelector:@selector(hide) withObject:nil afterDelay:2];
+            self.flipCount++;
+        }
+    }
+    
+
+
     
 }
 
