@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0187A6C11818813B0039BD0C /* NWGameResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0187A6C01818813B0039BD0C /* NWGameResultViewController.m */; };
 		0198F999181104B3005A2447 /* NWGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198F998181104B3005A2447 /* NWGame.m */; };
 		01D2BB271810AB4600A75044 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D2BB261810AB4600A75044 /* Foundation.framework */; };
 		01D2BB291810AB4700A75044 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D2BB281810AB4700A75044 /* CoreGraphics.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0187A6BF1818813B0039BD0C /* NWGameResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWGameResultViewController.h; sourceTree = "<group>"; };
+		0187A6C01818813B0039BD0C /* NWGameResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWGameResultViewController.m; sourceTree = "<group>"; };
 		0198F997181104B3005A2447 /* NWGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWGame.h; sourceTree = "<group>"; };
 		0198F998181104B3005A2447 /* NWGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWGame.m; sourceTree = "<group>"; };
 		01D2BB231810AB4600A75044 /* card_matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = card_matching.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +133,8 @@
 				01D2BB351810AB4700A75044 /* NWAppDelegate.h */,
 				01D2BB361810AB4700A75044 /* NWAppDelegate.m */,
 				01D2BB381810AB4700A75044 /* Main.storyboard */,
+				0187A6BF1818813B0039BD0C /* NWGameResultViewController.h */,
+				0187A6C01818813B0039BD0C /* NWGameResultViewController.m */,
 				01D2BB3B1810AB4700A75044 /* NWViewController.h */,
 				01D2BB3C1810AB4700A75044 /* NWViewController.m */,
 				01D2BB5B1810AB5000A75044 /* Models */,
@@ -286,6 +291,7 @@
 				01D2BB3D1810AB4700A75044 /* NWViewController.m in Sources */,
 				01D2BB611810ACDD00A75044 /* NWDeck.m in Sources */,
 				0198F999181104B3005A2447 /* NWGame.m in Sources */,
+				0187A6C11818813B0039BD0C /* NWGameResultViewController.m in Sources */,
 				01D2BB331810AB4700A75044 /* main.m in Sources */,
 				01D2BB641810B6B800A75044 /* NWPlayingCard.m in Sources */,
 				01D2BB5E1810AB6400A75044 /* NWCard.m in Sources */,
