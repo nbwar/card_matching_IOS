@@ -32,6 +32,8 @@
 
 -(NSTimeInterval)duration
 {
+    NSLog(@"%@", self.end);
+    NSLog(@"%@", self.start);
     return [self.end timeIntervalSinceDate:self.start];
 }
 
