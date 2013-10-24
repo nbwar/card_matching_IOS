@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0187A6C11818813B0039BD0C /* NWGameResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0187A6C01818813B0039BD0C /* NWGameResultViewController.m */; };
+		019150AE1818B324008035BC /* NWGameResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 019150AD1818B324008035BC /* NWGameResult.m */; };
 		0198F999181104B3005A2447 /* NWGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0198F998181104B3005A2447 /* NWGame.m */; };
 		01D2BB271810AB4600A75044 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D2BB261810AB4600A75044 /* Foundation.framework */; };
 		01D2BB291810AB4700A75044 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D2BB281810AB4700A75044 /* CoreGraphics.framework */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		0187A6BF1818813B0039BD0C /* NWGameResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWGameResultViewController.h; sourceTree = "<group>"; };
 		0187A6C01818813B0039BD0C /* NWGameResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWGameResultViewController.m; sourceTree = "<group>"; };
+		019150AC1818B324008035BC /* NWGameResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWGameResult.h; sourceTree = "<group>"; };
+		019150AD1818B324008035BC /* NWGameResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWGameResult.m; sourceTree = "<group>"; };
 		0198F997181104B3005A2447 /* NWGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWGame.h; sourceTree = "<group>"; };
 		0198F998181104B3005A2447 /* NWGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWGame.m; sourceTree = "<group>"; };
 		01D2BB231810AB4600A75044 /* card_matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = card_matching.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +179,8 @@
 		01D2BB5B1810AB5000A75044 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				019150AC1818B324008035BC /* NWGameResult.h */,
+				019150AD1818B324008035BC /* NWGameResult.m */,
 				0198F997181104B3005A2447 /* NWGame.h */,
 				0198F998181104B3005A2447 /* NWGame.m */,
 				01D2BB5C1810AB6400A75044 /* NWCard.h */,
@@ -296,6 +301,7 @@
 				01D2BB641810B6B800A75044 /* NWPlayingCard.m in Sources */,
 				01D2BB5E1810AB6400A75044 /* NWCard.m in Sources */,
 				01D2BB671810BBB700A75044 /* NWPlayingCardDeck.m in Sources */,
+				019150AE1818B324008035BC /* NWGameResult.m in Sources */,
 				01D2BB371810AB4700A75044 /* NWAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

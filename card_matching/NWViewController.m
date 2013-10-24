@@ -11,6 +11,7 @@
 #import "NWCard.h"
 #import "NWPlayingCard.h"
 #import "NWGame.h"
+#import "NWGameResult.h"
 
 @interface NWViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
@@ -18,9 +19,16 @@
 @property (strong, nonatomic) NWGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic) NSMutableArray *flippedUpCards;
+@property (strong, nonatomic) NWGameResult *gameResult;
 @end
 
 @implementation NWViewController
+
+-(NWGameResult *)gameResult
+{
+    if (!_gameResult) _gameResult = [[NWGameResult alloc] init];
+    return _gameResult;
+}
 
 -(NSMutableArray *)flippedUpCards
 {
@@ -123,6 +131,19 @@
         }
     }
     
+}
+- (IBAction)reset
+{
+    self.game = nil;
+    self.gameResult = nil;
+    for (UIButton *button in self.cardButtons) {
+        if (button.hidden) {
+            button.hidden = NO;
+            button.selected = !button.isSelected;
+        }
+    }
+        
+    [self viewDidLoad];
 }
 
 @end
