@@ -105,6 +105,8 @@
 -(void)checkForGameOver
 {
     if ([self.game isGameOver]) {
+        self.gameResult.score = [self.game score];
+        NSLog(@"%f", [self.game score]);
         NSString *message = [NSString stringWithFormat:@"You Scored: %.02f%%", [self.game score]];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You Win" message:message delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
         [alertView show];
@@ -136,6 +138,8 @@
 {
     self.game = nil;
     self.gameResult = nil;
+    self.flipsLabel.text = @"Flips: 0";
+    self.matchesLabel.text = @"Matches: 0";
     for (UIButton *button in self.cardButtons) {
         if (button.hidden) {
             button.hidden = NO;

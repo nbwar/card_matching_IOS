@@ -35,7 +35,7 @@
     return [self.end timeIntervalSinceDate:self.start];
 }
 
--(void)setScore:(int)score
+-(void)setScore:(float)score
 {
     _score = score;
     self.end = [NSDate date];
@@ -80,7 +80,7 @@
             NSDictionary *resultDictionary = plist;
             _start = resultDictionary[START_KEY];
             _end = resultDictionary[END_KEY];
-            _score = [resultDictionary[SCORE_KEY] intValue];
+            _score = [resultDictionary[SCORE_KEY] floatValue];
             if (!_start || !_end) self = nil;
         }
     }
