@@ -36,13 +36,13 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self updateUI];
+    [self updateUI:[NWGameResult allGameResults]];
 }
 
--(void)updateUI
+-(void)updateUI:(NSArray *)results
 {
     NSString *displayText = @"";
-    for (NWGameResult *result in [NWGameResult allGameResults]) {
+    for (NWGameResult *result in results) {
         displayText = [displayText stringByAppendingFormat:@"Score: %.02f%% (%@, %0gs) \n", result.score, [self formatDate:result.end], round(result.duration)];
     }
     self.display.text = displayText;
@@ -56,5 +56,18 @@
     return dateString;
 }
 
+
+- (IBAction)sortByDate
+{
+    NSMutableArray *dates = [[NWGameResult allGameResults] mutableCopy];
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"end"
+                                                 ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray;
+    sortedArray = [dates sortedArrayUsingDescriptors:sortDescriptors];
+    [self updateUI:sortedArray];
+
+}
 
 @end
