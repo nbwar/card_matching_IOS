@@ -43,7 +43,7 @@
 {
     NSString *displayText = @"";
     for (NWGameResult *result in [NWGameResult allGameResults]) {
-        displayText = [displayText stringByAppendingFormat:@"Score: %.02f%% (%@, %0g) \n", result.score, [self formatDate:result.end], round(result.duration)];
+        displayText = [displayText stringByAppendingFormat:@"Score: %.02f%% (%@, %0gs) \n", result.score, [self formatDate:result.end], round(result.duration)];
     }
     self.display.text = displayText;
 }

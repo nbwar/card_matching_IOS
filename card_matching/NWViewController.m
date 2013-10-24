@@ -106,7 +106,6 @@
 {
     if ([self.game isGameOver]) {
         self.gameResult.score = [self.game score];
-        NSLog(@"%f", [self.game score]);
         NSString *message = [NSString stringWithFormat:@"You Scored: %.02f%%", [self.game score]];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You Win" message:message delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
         [alertView show];
@@ -116,6 +115,8 @@
 
 - (IBAction)flipCard:(UIButton *)sender
 {
+    if (!self.gameResult) self.gameResult = [[NWGameResult alloc] init];
+    
     if (!sender.isSelected && self.flippedUpCards.count < 2) {
         [self.flippedUpCards addObject:sender];
         sender.selected = !sender.isSelected;
